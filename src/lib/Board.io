@@ -1,6 +1,6 @@
 Board := Object clone
  
-Board board ::= nil
+Board board := nil
  
 Board show := method(
     board foreach(row,
@@ -25,20 +25,11 @@ Board size := method(
 )
  
 Board readFromFile := method(filename,
-    board := List clone
-    file := File with(filename)
-    file openForReading
+    file := File clone openForReading(filename)
     lines := file readLines
     file close
-    lines foreach(l,
-        temp := List clone
-        nums := l split(",")
-        nums foreach(num,
-            num = num asNumber
-            temp append(num)
-        )
-        board append(temp)
+    self board = lines map(l,
+      l split(",") map(asNumber)
     )
-    setBoard(board)
 )
 
