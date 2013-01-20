@@ -67,7 +67,5 @@ Sudoku solve := method(
     _solve(0,0)
 )
  
-Sudoku show := method(
-    board show
-)
+Sudoku show := method(board show)
  
