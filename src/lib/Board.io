@@ -4,11 +4,7 @@ Board board := nil
  
 Board show := method(
   board foreach(row,
-    row foreach(cell,
-      cell print
-      " " print
-    )
-    "\n" print
+    row join(" ") println
   )
 )
  
