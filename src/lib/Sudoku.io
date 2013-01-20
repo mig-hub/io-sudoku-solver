@@ -8,25 +8,25 @@ Sudoku init := method(inputBoard,
 )
  
 Sudoku validRowValue := method(rowNum, value,
-  for (i, 0, board size - 1,
-    if (board get(rowNum, i) == value, return(false))
+  for(i, 0, board size - 1,
+    if(board get(rowNum, i) == value, return(false))
   )
   true
 )
  
 Sudoku validColumnValue := method(colNum, value,
-  for (i, 0, board size - 1,
-    if (board get(i, colNum) == value, return(false))
+  for(i, 0, board size - 1,
+    if(board get(i, colNum) == value, return(false))
   )
   true
 )
  
 Sudoku validRegionValue := method(row, col, value,
-  rowEnd := (row / 3) floor * 3 + 2 #because the loop is to rowEnd, not rowEnd - 1
-  colEnd := (col / 3) floor * 3 + 2
-  for (i, rowEnd - 2, rowEnd,
-    for (j, colEnd - 2, colEnd,
-      if (board get(i, j) == value, return(false))
+  rowStart := row - (row % 3)
+  colStart := col - (col % 3)
+  for(i, rowStart, rowStart + 2,
+    for(j, colStart, colStart + 2,
+      if(board get(i, j) == value, return(false))
     )
   )
   true
