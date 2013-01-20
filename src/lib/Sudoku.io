@@ -32,7 +32,7 @@ Sudoku validRegionValue := method(row, col, value,
   true
 )
  
-Sudoku _solve := method(row, col,
+Sudoku solveCell := method(row, col,
  
   if (row >= board size,
     solved = true
@@ -40,7 +40,7 @@ Sudoku _solve := method(row, col,
   )
 
   if (board get(row, col) != 0,
-    _next(row, col),
+    nextCell(row, col),
 
     for (i, 1, 9,
       if (validRowValue(row, i) and
@@ -48,23 +48,23 @@ Sudoku _solve := method(row, col,
         validRegionValue(row, col, i),
 
         board set(row, col, i)
-        _next(row, col)
+        nextCell(row, col)
       )
     )
     (solved) ifFalse (board set(row, col, 0))
   )
 )
  
-Sudoku _next := method(row, col,
+Sudoku nextCell := method(row, col,
   if (col < board size - 1,
-    _solve(row, col + 1),
-    _solve(row + 1, 0)
+    solveCell(row, col + 1),
+    solveCell(row + 1, 0)
   )
 )
  
 Sudoku solve := method(
   self solved := false
-  _solve(0,0)
+  solveCell(0,0)
 )
  
 Sudoku show := method(board show)
