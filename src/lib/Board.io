@@ -31,5 +31,6 @@ Board readFromFile := method(filename,
   self board = lines map(l,
     l split(",") map(asNumber)
   )
+  self
 )
 

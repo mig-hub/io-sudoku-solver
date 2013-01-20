@@ -1,7 +1,6 @@
 Importer addSearchPath("lib")
 
-board := Board clone
-board readFromFile("sudoku.txt")
+board := Board clone readFromFile("sudoku.txt")
 sudoku := Sudoku clone init(board)
 
 "Sudoki puzzle to be solved:" println
