@@ -4,21 +4,21 @@ Sudoku board ::= nil
  
 Sudoku init := method(inputBoard,
   setBoard(inputBoard)
-  return(self)
+  self
 )
  
 Sudoku validRowValue := method(rowNum, value,
   for (i, 0, board size - 1,
     if (board get(rowNum, i) == value, return(false))
   )
-  return(true)
+  true
 )
  
 Sudoku validColumnValue := method(colNum, value,
   for (i, 0, board size - 1,
     if (board get(i, colNum) == value, return(false))
   )
-  return(true)
+  true
 )
  
 Sudoku validRegionValue := method(row, col, value,
@@ -29,7 +29,7 @@ Sudoku validRegionValue := method(row, col, value,
       if (board get(i, j) == value, return(false))
     )
   )
-  return true
+  true
 )
  
 Sudoku _solve := method(row, col,
