@@ -20,9 +20,7 @@ Board set := method(row, col, value,
   board at(row) atPut(col, value)
 )
  
-Board size := method(
-  return(board size)
-)
+Board size := method(board size)
  
 Board readFromFile := method(filename,
   file := File clone openForReading(filename)
