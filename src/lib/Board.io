@@ -23,7 +23,7 @@ Board readFromFile := method(filename,
   lines := file readLines
   file close
   self board = lines map(l,
-    l split(",") map(asNumber)
+    l split map(asNumber)
   )
   self
 )
